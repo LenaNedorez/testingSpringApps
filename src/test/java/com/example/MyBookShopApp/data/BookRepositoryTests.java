@@ -23,6 +23,11 @@ class BookRepositoryTests {
     }
 
     @Test
+    void injectedRepositoryNotNull(){
+        assertThat(bookRepository).isNotNull();
+    }
+
+    @Test
     void findBooksByAuthor_FirstName() {
         String token = "Jelene";
         List<Book> bookListByAuthorFirstName = bookRepository.findBooksByAuthor_FirstName(token);
@@ -54,5 +59,19 @@ class BookRepositoryTests {
         assertNotNull(bestSellersBooks);
         assertFalse(bestSellersBooks.isEmpty());
         assertThat(bestSellersBooks.size()).isGreaterThan(1);
+    }
+
+    @Test
+    void customFindAllBooksTest(){
+        List<Book> allBooks = bookRepository.customFindAllBooks();
+        assertNotNull(allBooks);
+        assertFalse(allBooks.isEmpty());
+    }
+
+    @Test
+    void getBooksWithMaxDiscountTest(){
+        List<Book> booksWithMaxDiscount = bookRepository.getBooksWithMaxDiscount();
+        assertNotNull(booksWithMaxDiscount);
+        assertFalse(booksWithMaxDiscount.isEmpty());
     }
 }
