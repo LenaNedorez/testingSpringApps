@@ -64,7 +64,7 @@ public class BooksRestApiController {
         return ResponseEntity.ok(bookService.getBooksWithMaxPrice());
     }
 
-    @GetMapping("/books/bestsellsers")
+    @GetMapping("/books/bestsellers")
     @ApiOperation("get bestseller books (which is_bestseller = 1)")
     public ResponseEntity<List<Book>> bestSellerBooks() {
         return ResponseEntity.ok(bookService.getBestsellers());
